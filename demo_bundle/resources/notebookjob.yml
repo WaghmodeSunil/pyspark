@@ -1,0 +1,23 @@
+resources:
+  jobs:
+    notebookJob:
+      name: notebookJob
+      trigger:
+        pause_status: UNPAUSED
+        periodic:
+          interval: 3
+          unit: MINUTES
+      tasks:
+        - task_key: notebookjob
+          notebook_task:
+            notebook_path: /Workspace/Users/2016bec008@sggs.ac.in/pyspark/demo_bundle/src/notebook1
+            source: WORKSPACE
+        - task_key: notebook2
+          depends_on:
+            - task_key: notebookjob
+          notebook_task:
+            notebook_path: /Workspace/Users/2016bec008@sggs.ac.in/pyspark/demo_bundle/src/notebook2
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
