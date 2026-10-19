@@ -5,9 +5,12 @@ resources:
       tasks:
         - task_key: create_table
           notebook_task:
-            notebook_path: /Workspace/Users/2016bec008@sggs.ac.in/pyspark/demo_bundle/src/Employee
-              Table
+            notebook_path: /Workspace/Users/2016bec008@sggs.ac.in/pyspark/demo_bundle/src/Employee Table
             source: WORKSPACE
       queue:
         enabled: true
       performance_target: PERFORMANCE_OPTIMIZED
+      git_source:
+        git_branch: main
+        git_provider: gitHub
+        git_url: https://github.com/WaghmodeSunil/pyspark.git
