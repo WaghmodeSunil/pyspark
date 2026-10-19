@@ -1,0 +1,21 @@
+resources:
+  jobs:
+    Source_to_Bronze_Ingestion:
+      name: Source to Bronze Ingestion
+      description: "Metadata-driven ingestion job: reads table_config and
+        source_config metadata to dynamically load source tables (customers,
+        orders, products, payments) into the bronze layer using full_load and
+        incremental (MERGE) strategies."
+      trigger:
+        pause_status: UNPAUSED
+        periodic:
+          interval: 1
+          unit: DAYS
+      tasks:
+        - task_key: notebook_task_data_ingestion
+          notebook_task:
+            notebook_path: /Users/2016bec008@sggs.ac.in/metadata driven
+              pipeline/data_ingestion
+            source: WORKSPACE
+      queue:
+        enabled: true
