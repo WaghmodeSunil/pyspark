@@ -2,11 +2,6 @@ resources:
   jobs:
     notebookJob:
       name: notebookJob
-      trigger:
-        pause_status: UNPAUSED
-        periodic:
-          interval: 3
-          unit: MINUTES
       tasks:
         - task_key: notebookjob
           notebook_task:
